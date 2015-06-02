@@ -1,0 +1,7 @@
+tm1637	KEYWORD1
+power	KEYWORD2
+setBrightness	KEYWORD2
+setTime	KEYWORD2
+writeDigit	KEYWORD2
+writeInteger	KEYWORD2
+clear	KEYWORD2
