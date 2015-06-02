@@ -1,3 +1,31 @@
+/************************************************************************* 
+ *  WiFiClock
+ *    This program requires the addition of libraries:
+ *      NTP
+ *      tm1637
+ *      Time
+ *  Uses the system clock to keep track of time.
+ *  A tm1637 module connected to the ESP8266 will display this time.
+ *  The time is kept current by hourly requests from an NTP server pool.
+ *
+ *  WiFi connection
+ *    You'll notice that there is no ssid or password hardwired into the code
+ *    If the ESP8266 has been previously connected to your network, it will
+ *    remember your credentials and use then to reconnect.
+ *    If this is the first time this module is to be connected to the network,
+ *    this code waits to retrieve your ssid and password over the serial port.
+ *    
+*************************************************************************/
+
+/* You must dedicate two GPIO pins to be used to communicate with the tm1637 module
+ * Make sure to connect:
+ *   tm1637_clk_pin to the CLK pin on the tm1637 clock module
+ *   tm1637_data_pin to the pin on the clock module labeled DIO
+*/
+  #define tm1637_clk_pin 14
+  #define tm1637_data_pin 13
+
+
 #include <ntp.h>
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
@@ -12,7 +40,7 @@ void digitalClockDisplay();
 void toggleColon(void);
 
 NTP NTPclient;
-tm1637 display(14, 13);
+tm1637 display(tm1637_clk_pin, tm1637_data_pin);
 Ticker clock;
 bool colon = true;
 bool updateTime = true;
