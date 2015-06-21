@@ -9,7 +9,7 @@
  *****************************************************************************/
 
 #include "ESP8266WiFi.h"
-#include "arduino.h"
+#include "Arduino.h"
 #include "ntp.h"
 
 NTP::NTP(void)
