@@ -12,7 +12,7 @@
 #include "IPAddress.h"
 #include "WiFiUdp.h"
 #include <stdint.h>
-#include <time.h>
+#include <Time.h>
 
 
 class NTP

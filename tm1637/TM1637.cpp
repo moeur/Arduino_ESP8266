@@ -1,6 +1,6 @@
 
 #include "TM1637.h"
-#include "arduino.h"
+#include "Arduino.h"
 
 tm1637::tm1637(uint8_t ClockPin, uint8_t DataPin)
 {
