@@ -88,12 +88,13 @@ uint8_t NTP::DSToffset(time_t date)
   tm.Month = 3; //MARCH
   tm.Year = year(date) - 1970;
   tm.Day = 7; //March 7th
-  time_t beginDST = nextSunday( makeTime(tm) ) + 2*SECS_PER_HOUR;
+  tm.Hour = 2; //2AM
+  time_t beginDST = nextSunday( makeTime(tm) );
   
   //get seconds for 1st Sunday in November
   tm.Month = 10; //October
   tm.Day = 31; //last day of October;
-  time_t endDST = nextSunday( makeTime(tm) ) + 2*SECS_PER_HOUR;
+  time_t endDST = nextSunday( makeTime(tm) );
 
   //now, if we are between the two times we are in DST
   return (((date >= beginDST) && (date < endDST))? 1: 0);
